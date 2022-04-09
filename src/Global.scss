@@ -1,0 +1,32 @@
+$tablet: 769px;
+$large: 426px;
+$mid: 376px;
+$small: 322px;
+
+
+@mixin tablet_device {
+    @media (max-width: #{$tablet}){
+        @content
+    }
+};
+
+
+@mixin large_device {
+    @media (max-width: #{$large}){
+        @content
+    }
+};
+
+
+@mixin mid_device {
+    @media (max-width: #{$mid}){
+        @content
+    }
+};
+
+
+@mixin small_device {
+    @media (max-width: #{$small}){
+        @content
+    }
+};
