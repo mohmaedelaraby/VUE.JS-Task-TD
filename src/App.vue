@@ -3,12 +3,22 @@
 <div class="container">
   <TopBar :title="topBarData"/>
   <div class="item_conatner">
-    <CartItem 
-    v-for="item in visibleCarts"
-    v-bind:key="item.id"
+    <template v-for="(item,index) in visibleCarts"  v-bind:key="item.id">
+     <LargeCartItem
+     v-if="index===0 || index===6"
     :itemsList="item"
      />
+
+     <CartItem
+     v-else
+    :itemsList="item"
+     />
+    
+
+     
+  </template>
    
+
   </div>
   <span><button @click="cartVisible += step" v-if="cartVisible < items.length">View More</button></span>
 </div>
@@ -16,13 +26,14 @@
 </template>
 
 <script>
+import LargeCartItem from './components/LargeCartItem.vue'
 import CartItem from './components/CartItem.vue'
 import TopBar from './components/TopBar.vue'
 import axios from 'axios'
 export default {
   name: 'App',
   components: {
-     TopBar, CartItem
+     TopBar, LargeCartItem, CartItem
   },
   data(){
     return{
@@ -52,24 +63,31 @@ export default {
 @import url('http://fonts.cdnfonts.com/css/itc-avant-garde-pro-md');
 * {margin: 0 !important;font-family: 'ITC Avant Garde Pro Md', sans-serif; }
 .home_page{
-  background-color: red;
+  padding-top:50px;
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: fit-content;
   .container{
-    background-color: white;
-    width: 90%;
-    height: 90%;
+  
+    width: 85%;
+    height: fit-content;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    
     .item_conatner{
+       overflow: hidden;
+       background-color: red;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
       width: 100%;
       height: 96%;
-      background-color: aqua;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
     }
 
     span{
