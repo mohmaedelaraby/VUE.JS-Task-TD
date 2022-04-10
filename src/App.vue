@@ -80,7 +80,7 @@ export default {
     
     .item_conatner{
        overflow: hidden;
-       background-color: red;
+
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;

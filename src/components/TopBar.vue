@@ -26,7 +26,8 @@ ul {
   float: left;
   display: block;
   font-size: 18pt;
-  padding: 8px;
+  padding-bottom: 15px;
+  padding-left: 20px;
   font-weight: 500;
   color: #484848;
    @include large_device{
