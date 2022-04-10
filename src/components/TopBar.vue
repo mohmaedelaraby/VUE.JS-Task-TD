@@ -10,14 +10,7 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name:"TopBar",
-        props:{
-            title:String
-        }
-    }
-</script>
+<script>export default{name:"TopBar",props:{title:String}};</script>
 
 <style lang="scss" scoped>
 @import "../Global.scss";
@@ -34,6 +27,10 @@ ul {
   padding-left: 20px;
   font-weight: 500;
   color: #484848;
+   @include tablet_device{
+       font-size: 15pt;
+       font-weight: 600;
+    }
    @include large_device{
        font-size: 10pt;
        font-weight: 600;

@@ -1,3 +1,4 @@
+
 <template>
 <div class="home_page">
 <div class="container">
@@ -5,18 +6,17 @@
   <div class="item_conatner">
     <template v-for="(item,index) in visibleCarts"  v-bind:key="item.id" >
      <LargeCartItem
-     v-if="index===0 || index===6"
+     v-if="index===0 || index%10===0 || index===6"
     :itemsList="item"
     data-aos="zoom-in-up"
-    data-aos-duration="1100"
+    data-aos-duration="800"
     data-aos-easing="ease-in-out"
      />
-
      <CartItem
      v-else
     :itemsList="item"
     data-aos="zoom-in-up"
-    data-aos-duration="1100"
+    data-aos-duration="800"
     data-aos-easing="ease-in-out"
      />     
   </template>
@@ -27,40 +27,7 @@
 </template>
 
 <script>
-import LargeCartItem from './components/LargeCartItem.vue'
-import CartItem from './components/CartItem.vue'
-import TopBar from './components/TopBar.vue'
-import axios from 'axios'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-export default {
-  name: 'App',
-  components: {
-     TopBar, LargeCartItem, CartItem
-  },
-  data(){
-    return{
-      topBarData :[],
-      items:[],
-      cartVisible: 7,
-      step: 3
-    }
-  },
-  mounted(){
-     AOS.init()
-    axios.get('https://api.rss2json.com/v1/api.json?rss_url=http://rss.cnn.com/rss/edition.rss')
-      .then((res)=>{
-        this.topBarData=res.data.feed.title
-        this.items=res.data.items
-        console.log(res.data.items)})
-      .catch((err)=>{console.log(err)})
-  },
-  computed:{
-     visibleCarts() {
-      return this.items.slice(0, this.cartVisible)
-    }
-  }
-}
+import LargeCartItem from"./components/LargeCartItem.vue";import CartItem from"./components/CartItem.vue";import TopBar from"./components/TopBar.vue";import axios from"axios";import AOS from"aos";import"aos/dist/aos.css";export default{name:"App",components:{TopBar:TopBar,LargeCartItem:LargeCartItem,CartItem:CartItem},data:()=>({topBarData:[],items:[],cartVisible:7,step:3}),mounted(){AOS.init(),axios.get("https://api.rss2json.com/v1/api.json?rss_url=http://rss.cnn.com/rss/edition.rss").then(t=>{this.topBarData=t.data.feed.title,this.items=t.data.items,console.log(t.data.items)}).catch(t=>{console.log(t)})},computed:{visibleCarts(){return this.items.slice(0,this.cartVisible)}}};
 </script>
 
 <style lang="scss">
@@ -76,12 +43,14 @@ export default {
   width: 100%;
   height: fit-content;
   .container{
-  
-    width: 80%;
+    width: 70%;
     height: fit-content;
     overflow: auto;
     display: flex;
     flex-direction: column;
+      @include tablet_device{
+       width: 85%;
+    }
     
     .item_conatner{
        overflow: hidden;
@@ -107,9 +76,7 @@ export default {
         border: 2px solid black;
         background-color: #ffffff;
         cursor: pointer;
-         transition:  0.2s ease-in-out;
-        
-        
+         transition:  0.2s ease-in-out; 
         &:hover{
           font-size: 15px;
           transition:  0.2s ease-in-out;

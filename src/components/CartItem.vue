@@ -5,27 +5,19 @@
             <div class="info">
                 <div class="info_txt">
                     <span class="txt_container"><h5>{{itemsList.title}}</h5></span>
-                    <p>{{itemsList.pubDate}}</p>
+                    <p>{{slicedDate}}</p>
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-<script>
-    export default {
-        name:"CartItem",
-        props:{
-          itemsList : Object ,
-        }
-    }
-</script>
-
+<script>export default{name:"CartItem",data:()=>({date_:String,slicedDate:String}),props:{itemsList:Object},mounted(){if(this.date_=this.itemsList.pubDate,this.date_)this.slicedDate=this.date_.toString().slice(0,10),console.log("date",this.date_,"==>",this.slicedDate);else{var t=new Date,e=String(t.getDate()).padStart(2,"0"),a=String(t.getMonth()+1).padStart(2,"0"),i=t.getFullYear();this.slicedDate=i+"-"+a+"-"+e}}};</script>
 <style lang="scss" scoped>
 @import "../Global.scss";
 .cart{    
      //width: 31%;
-    height: 290px;
+    height: 220px;
      flex: 0 0 31%;
      padding-bottom:20px ;
     display: flex;
@@ -66,8 +58,8 @@
                     h5{
                     color: white;
                     font-weight: 500;
-                    font-size: 32px;
-                    @include mid_device{ font-size: 20px; }
+                    font-size: 20px;
+                    @include mid_device{ font-size: 14px; }
                     }
                 }
                 p{
