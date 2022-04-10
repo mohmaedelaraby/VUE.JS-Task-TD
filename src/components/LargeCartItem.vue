@@ -31,6 +31,7 @@
     flex: 0 0 64%;
     justify-content: center;
     align-items: center;
+    
      @include tablet_device{
        width: 100%;
     }
