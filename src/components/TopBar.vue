@@ -1,7 +1,11 @@
 <template>
     <div>
         <ul>
-             <li>{{title}}</li>
+             <li>
+                 {{title}}
+                 <hr/>
+            </li>
+            
         </ul>
     </div>
 </template>
@@ -37,6 +41,17 @@ ul {
     @include mid_device{    
         font-size: 8pt;
        font-weight: 600;
+    }
+    
+    @include small_device{    
+        font-size: 7pt;
+       font-weight: 800;
+    }
+    hr{
+        width: 9%;
+        background-color: #ffe50e;
+        height: 5px;
+        border: none;
     }
   }
 }

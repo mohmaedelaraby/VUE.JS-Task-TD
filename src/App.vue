@@ -12,13 +12,8 @@
      <CartItem
      v-else
     :itemsList="item"
-     />
-    
-
-     
+     />     
   </template>
-   
-
   </div>
   <span><button @click="cartVisible += step" v-if="cartVisible < items.length">View More</button></span>
 </div>
@@ -61,6 +56,7 @@ export default {
 
 <style lang="scss">
 @import url('http://fonts.cdnfonts.com/css/itc-avant-garde-pro-md');
+@import "./Global.scss";
 * {margin: 0 !important;font-family: 'ITC Avant Garde Pro Md', sans-serif; }
 .home_page{
   padding-top:50px;
@@ -88,6 +84,9 @@ export default {
       justify-content: space-evenly;
       width: 100%;
       height: 96%;
+       @include tablet_device{
+       flex-direction: column;
+    }
     }
 
     span{
@@ -98,6 +97,14 @@ export default {
         width: 130px;
         border: 2px solid black;
         background-color: #ffffff;
+        cursor: pointer;
+         transition:  0.2s ease-in-out;
+        
+        
+        &:hover{
+          font-size: 15px;
+          transition:  0.2s ease-in-out;
+        }
 
       }
     }

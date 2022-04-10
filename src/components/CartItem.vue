@@ -22,6 +22,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "../Global.scss";
 .cart{    
      //width: 31%;
     height: 290px;
@@ -66,6 +67,7 @@
                     color: white;
                     font-weight: 500;
                     font-size: 32px;
+                    @include mid_device{ font-size: 20px; }
                     }
                 }
                 p{

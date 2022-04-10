@@ -1,7 +1,7 @@
 <template>
     <div class="cart">
         <div class="cart_container">
-            <img :src="itemsList.enclosure.link"  class="item_img" />
+            <img :src="itemsList.enclosure.link"  class="item_img"  />
             <div class="info">
                 <div class="info_txt">
                     <span class="txt_container"><h5>{{itemsList.title}}</h5></span>
@@ -22,6 +22,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "../Global.scss";
 .cart{
     width:63%;
      height: 290px;
@@ -30,6 +31,9 @@
     flex: 0 0 64%;
     justify-content: center;
     align-items: center;
+     @include tablet_device{
+       width: 100%;
+    }
     .cart_container{
         position: relative;
         width: 100%;
@@ -65,6 +69,7 @@
                     color: white;
                     font-weight: 500;
                     font-size: 32px;
+                    @include mid_device{ font-size: 20px; }
                     }
                 }
                 p{
