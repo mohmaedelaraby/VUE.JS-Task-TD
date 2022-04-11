@@ -48,13 +48,12 @@ import LargeCartItem from"./components/LargeCartItem.vue";import CartItem from".
     overflow: auto;
     display: flex;
     flex-direction: column;
-      @include tablet_device{
-       width: 85%;
-    }
     
+     @include tablet_device{
+       width: 85%;
+       }
     .item_conatner{
-       overflow: hidden;
-
+      overflow: hidden;
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
@@ -64,9 +63,8 @@ import LargeCartItem from"./components/LargeCartItem.vue";import CartItem from".
       height: 96%;
        @include tablet_device{
        flex-direction: column;
+       }
     }
-    }
-
     span{
       display: flex;
      justify-content: center;
@@ -81,7 +79,6 @@ import LargeCartItem from"./components/LargeCartItem.vue";import CartItem from".
           font-size: 15px;
           transition:  0.2s ease-in-out;
         }
-
       }
     }
   }
