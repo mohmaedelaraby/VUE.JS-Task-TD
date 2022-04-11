@@ -26,7 +26,7 @@ $small: 322px;
     }
 };
 @mixin cart($property, $ltr-value){
-      
+   
     height: 220px;
     #{$property}: $ltr-value;
     padding-bottom:20px ;
